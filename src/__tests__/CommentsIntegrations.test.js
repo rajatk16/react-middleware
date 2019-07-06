@@ -1,7 +1,7 @@
 import React from 'react'
 import {mount} from 'enzyme';
-import Root from 'Root';
 import moxios from 'moxios';
+import Root from 'Root';
 import App from 'components/App';
 
 beforeEach(() => {
@@ -30,7 +30,7 @@ it('can fetch a list of comments and display them', (done) => {
 
   moxios.wait(() => {
     wrapped.update();
-    expect(wrapped.find('li').length).toEqual(4);
+    expect(wrapped.find('li').length).toEqual(2);
     done();
     wrapped.unmount();
   });

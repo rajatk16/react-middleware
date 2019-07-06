@@ -15,7 +15,7 @@ beforeEach(() => {
     <Root>
       <CommentBox/>
     </Root>
-  )
+  );
 });
 
 it('has a textarea and two buttons', () => {

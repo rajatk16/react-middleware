@@ -5,20 +5,11 @@ import async from 'middlewares/async';
 import stateValidator from 'middlewares/stateValidator';
 import reducers from 'reducers';
 
-const store = createStore(
-  reducers, {
-    comments: [
-      "Comment #1",
-      "Comment #2"
-    ]
-  }, 
-  applyMiddleware(async, stateValidator)
-);
-
-export default (props) => {
-  return (
-    <Provider store={store}>
-      {props.children}
-    </Provider>
-  )
-}
+export default ({children, initialState = {}}) => {
+  const store = createStore(
+    reducers,
+    initialState,
+    applyMiddleware(async, stateValidator)
+  );
+  return <Provider store={store}>{children}</Provider>;
+};

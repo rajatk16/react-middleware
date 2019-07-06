@@ -12,7 +12,7 @@ class App extends Component {
         <button onClick={() => this.props.changeAuth(false)}>
           Sign Out
         </button>
-      )
+      );
     } else {
       return (
         <button onClick={() => this.props.changeAuth(true)}>
