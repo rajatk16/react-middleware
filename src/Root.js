@@ -1,17 +1,18 @@
 import React from 'react'
 import {Provider} from 'react-redux';
 import {createStore, applyMiddleware} from 'redux';
-import reduxPromise from 'redux-promise';
+import async from 'middlewares/async';
+import stateValidator from 'middlewares/stateValidator';
 import reducers from 'reducers';
 
 const store = createStore(
   reducers, {
     comments: [
-      "Hello World",
-      "Wassup"
+      "Comment #1",
+      "Comment #2"
     ]
   }, 
-  applyMiddleware(reduxPromise)
+  applyMiddleware(async, stateValidator)
 );
 
 export default (props) => {
